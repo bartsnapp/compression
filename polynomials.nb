@@ -1,0 +1,198 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6422,        190]
+NotebookOptionsPosition[      5785,        163]
+NotebookOutlinePosition[      6125,        178]
+CellTagsIndexPosition[      6082,        175]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Shifting polynomials", "Title",
+ CellChangeTimes->{{3.707732525980735*^9, 3.7077325320773897`*^9}}],
+
+Cell["\<\
+Here we generate polynomials in Z_p and look at how they change when shifted. \
+\>", "Text",
+ CellChangeTimes->{{3.707732534481208*^9, 3.7077325512393627`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"p", "=", "11"}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"size", " ", "of", " ", "finite", " ", "field"}], " ", "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"elements", "=", 
+    RowBox[{"Table", "[", 
+     RowBox[{"i", ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "0", ",", 
+        RowBox[{"p", "-", "1"}]}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"numRoots", "=", "10"}], ";", " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"change", " ", "as", " ", "needed"}], " ", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"roots", "=", 
+   RowBox[{"RandomSample", "[", 
+    RowBox[{"elements", ",", "numRoots"}], "]"}]}], ";", " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "random", " ", "is", " ", "not", " ", "great", " ", "for", " ", "deep", 
+     " ", "understanding"}], ",", " ", 
+    RowBox[{
+    "but", " ", "for", " ", "initial", " ", "experiments", " ", "it", " ", 
+     "is", " ", "ok"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"P", "[", "x_", "]"}], "=", 
+   RowBox[{"PolynomialMod", "[", 
+    RowBox[{
+     RowBox[{"Expand", "[", 
+      RowBox[{"Product", "[", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"x", "-", 
+          RowBox[{"roots", "[", 
+           RowBox[{"[", "i", "]"}], "]"}]}], ")"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", 
+          RowBox[{"Length", "[", "roots", "]"}]}], "}"}]}], "]"}], "]"}], ",",
+      "p"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7077322823689404`*^9, 3.707732299508643*^9}, {
+  3.707732335794202*^9, 3.707732403522122*^9}, {3.7077324410625687`*^9, 
+  3.707732480859106*^9}, {3.707732557605402*^9, 3.707732640488562*^9}, {
+  3.7077330586924973`*^9, 3.70773307363976*^9}, {3.707733122514073*^9, 
+  3.707733124538916*^9}, {3.707733160184238*^9, 3.707733160381441*^9}, {
+  3.707733254274311*^9, 3.707733256369768*^9}, {3.707733753387786*^9, 
+  3.707733757380412*^9}, {3.707733827317419*^9, 3.7077338362691936`*^9}, {
+  3.707734156461302*^9, 3.7077341601411943`*^9}, {3.707734330581615*^9, 
+  3.7077343814298077`*^9}}],
+
+Cell["\<\
+This is our polynomial. Let\[CloseCurlyQuote]s see what shifts of this \
+polynomial look like:\
+\>", "Text",
+ CellChangeTimes->{{3.7077326576783533`*^9, 3.70773267166269*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"listOfShifts", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"PolynomialMod", "[", 
+      RowBox[{
+       RowBox[{"Expand", "[", 
+        RowBox[{"P", "[", 
+         RowBox[{"x", "+", "i"}], "]"}], "]"}], ",", "p"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "0", ",", 
+       RowBox[{"p", "-", "1"}]}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.707732673462142*^9, 3.707732705641222*^9}, {
+   3.7077331988068132`*^9, 3.7077332074390917`*^9}, 3.707733262140205*^9, 
+   3.707733764692774*^9}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Question: Do these polynomials form an \
+\[OpenCurlyDoubleQuote]equivalence\[CloseCurlyDoubleQuote] class? If so, \
+prove it. If not, do they form something similar?", "Subsection"]], "Chapter",\
+
+ CellChangeTimes->{{3.707732757293192*^9, 3.7077328063397017`*^9}, {
+  3.7077338927375193`*^9, 3.707733898711852*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", 
+  RowBox[{"First", "[", 
+   RowBox[{"Sort", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"Replace", "[", 
+       RowBox[{
+        RowBox[{"CoefficientList", "[", 
+         RowBox[{
+          RowBox[{"listOfShifts", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], ",", "x"}], "]"}], ",", 
+        RowBox[{"0", "\[Rule]", "Nothing"}], ",", 
+        RowBox[{"{", "1", "}"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"Length", "[", "listOfShifts", "]"}]}], "}"}]}], "]"}], "]"}],
+    "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.707733219207365*^9, 3.707733268779258*^9}, {
+  3.7077333766992683`*^9, 3.707733416123664*^9}, {3.707733478671302*^9, 
+  3.7077334791899767`*^9}, {3.707733671151599*^9, 3.707733676192156*^9}, {
+  3.707733714486548*^9, 3.707733744721084*^9}, {3.707733800762535*^9, 
+  3.7077338058939734`*^9}}],
+
+Cell[BoxData["2"], "Output",
+ CellChangeTimes->{
+  3.707733269452752*^9, 3.707733382880843*^9, 3.70773341689149*^9, 
+   3.707733479844378*^9, 3.707733676611306*^9, {3.707733731906825*^9, 
+   3.707733744996855*^9}, {3.707733782585533*^9, 3.7077338205352488`*^9}, 
+   3.707734925793528*^9}]
+}, Open  ]],
+
+Cell["\<\
+This number represents the potential \[OpenCurlyDoubleQuote]savings\
+\[CloseCurlyDoubleQuote] of using a polynomial to encode \
+\[OpenCurlyDoubleQuote]numRoots.\[CloseCurlyDoubleQuote]\
+\>", "Text",
+ CellChangeTimes->{{3.707734933597728*^9, 3.7077349576135073`*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 621},
+WindowMargins->{{279, Automatic}, {37, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 105, 1, 93, "Title"],
+Cell[688, 25, 170, 3, 31, "Text"],
+Cell[861, 30, 2248, 56, 259, "Input"],
+Cell[3112, 88, 185, 4, 31, "Text"],
+Cell[3300, 94, 567, 15, 34, "Input"],
+Cell[CellGroupData[{
+Cell[3892, 113, 339, 5, 79, "Chapter"],
+Cell[CellGroupData[{
+Cell[4256, 122, 919, 22, 79, "Input"],
+Cell[5178, 146, 288, 5, 32, "Output"]
+}, Open  ]],
+Cell[5481, 154, 276, 5, 31, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
