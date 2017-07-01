@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      6778,        194]
-NotebookOptionsPosition[      6141,        167]
-NotebookOutlinePosition[      6480,        182]
-CellTagsIndexPosition[      6437,        179]
+NotebookDataLength[     15762,        418]
+NotebookOptionsPosition[     14703,        377]
+NotebookOutlinePosition[     15042,        392]
+CellTagsIndexPosition[     14999,        389]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -45,13 +45,16 @@ Cell[BoxData[{
         RowBox[{"p", "-", "1"}]}], "}"}]}], "]"}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"numRoots", "=", "10"}], ";", " ", 
+  RowBox[{
+   RowBox[{"numRoots", "=", "10"}], ";"}], " ", 
   RowBox[{"(*", " ", 
    RowBox[{"change", " ", "as", " ", "needed"}], " ", "*)"}], 
-  "\[IndentingNewLine]", "\[IndentingNewLine]", 
-  RowBox[{"roots", "=", 
-   RowBox[{"RandomSample", "[", 
-    RowBox[{"elements", ",", "numRoots"}], "]"}]}], ";", " ", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"roots", "=", 
+    RowBox[{"RandomSample", "[", 
+     RowBox[{"elements", ",", "numRoots"}], "]"}]}], ";"}], " ", 
   RowBox[{"(*", " ", 
    RowBox[{
     RowBox[{
@@ -59,8 +62,9 @@ Cell[BoxData[{
      " ", "understanding"}], ",", " ", 
     RowBox[{
     "but", " ", "for", " ", "initial", " ", "experiments", " ", "it", " ", 
-     "is", " ", "ok"}]}], " ", "*)"}], "\[IndentingNewLine]", 
-  "\[IndentingNewLine]", 
+     "is", " ", "ok"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{
    RowBox[{"P", "[", "x_", "]"}], "=", 
    RowBox[{"PolynomialMod", "[", 
@@ -161,12 +165,218 @@ This number represents the potential \[OpenCurlyDoubleQuote]savings\
 \[CloseCurlyDoubleQuote] of using a polynomial to encode \
 \[OpenCurlyDoubleQuote]numRoots.\[CloseCurlyDoubleQuote]\
 \>", "Text",
- CellChangeTimes->{{3.707734933597728*^9, 3.7077349576135073`*^9}}]
+ CellChangeTimes->{{3.707734933597728*^9, 3.7077349576135073`*^9}}],
+
+Cell["\<\
+Of the patterns of length p = 2,3,5,7,11, which \
+\[OpenCurlyDoubleQuote]compress\[CloseCurlyDoubleQuote] to the polynomials \
+with the most terms?\
+\>", "Section",
+ CellChangeTimes->{{3.7079407095241756`*^9, 3.7079407651927967`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Create a manipulate", "Section",
+ CellChangeTimes->{{3.707940789142358*^9, 3.7079407949643097`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"p", "=", "5"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"roots", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1", ",", "2", ",", "4"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"P", "[", "x_", "]"}], "=", 
+  RowBox[{"PolynomialMod", "[", 
+   RowBox[{
+    RowBox[{"Expand", "[", 
+     RowBox[{"Product", "[", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"x", "-", 
+         RowBox[{"roots", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], ")"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "[", "roots", "]"}]}], "}"}]}], "]"}], "]"}], ",", 
+    "p"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"P", "[", "x", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "4"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7079408457575893`*^9, 3.707940874959319*^9}, {
+  3.707940924049302*^9, 3.707941021157708*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"2", " ", "x"}], "+", 
+  RowBox[{"4", " ", 
+   SuperscriptBox["x", "2"]}], "+", 
+  RowBox[{"3", " ", 
+   SuperscriptBox["x", "3"]}], "+", 
+  SuperscriptBox["x", "4"]}]], "Output",
+ CellChangeTimes->{3.707941125365095*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, {}, 
+    TagBox[
+     {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], Opacity[
+      1.], LineBox[CompressedData["
+1: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
+h8CET1dmOBCM/wOct8u0
+       "]]},
+     Annotation[#, "Charting`Private`Tag$841#1"]& ]}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0, 4}, {0., 519.9999645714295}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.707941125395072*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"PolynomialMod", "[", 
+    RowBox[{
+     RowBox[{"Expand", "[", 
+      RowBox[{"P", "[", 
+       RowBox[{
+        RowBox[{"a", " ", "x"}], "+", "b"}], "]"}], "]"}], ",", "p"}], "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "1", ",", "4", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"b", ",", "0", ",", "4", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7079410420723143`*^9, 3.7079411512644253`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 4, $CellContext`b$$ = 2, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`a$$], 1, 4, 1}, {
+      Hold[$CellContext`b$$], 0, 4, 1}}, Typeset`size$$ = {122., {0., 14.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`a$912$$ = 0, $CellContext`b$913$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 1, $CellContext`b$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`a$$, $CellContext`a$912$$, 0], 
+        Hold[$CellContext`b$$, $CellContext`b$913$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> PolynomialMod[
+        Expand[
+         $CellContext`P[$CellContext`a$$ $CellContext`x + $CellContext`b$$]], \
+$CellContext`p], 
+      "Specifications" :> {{$CellContext`a$$, 1, 4, 1}, {$CellContext`b$$, 0, 
+         4, 1}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{250., {63., 70.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.7079411186156*^9, 3.707941151611864*^9}}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.707940878960019*^9, 3.707940883177676*^9}}]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{808, 621},
-WindowMargins->{{279, Automatic}, {0, Automatic}},
+WindowMargins->{{15, Automatic}, {Automatic, 37}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -184,16 +394,30 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 105, 1, 93, "Title"],
 Cell[688, 25, 170, 3, 31, "Text"],
-Cell[861, 30, 2248, 56, 259, "Input"],
-Cell[3112, 88, 185, 4, 31, "Text"],
-Cell[3300, 94, 567, 15, 34, "Input"],
+Cell[861, 30, 2302, 60, 259, "Input"],
+Cell[3166, 92, 185, 4, 31, "Text"],
+Cell[3354, 98, 567, 15, 34, "Input"],
 Cell[CellGroupData[{
-Cell[3892, 113, 695, 9, 251, "Chapter"],
+Cell[3946, 117, 695, 9, 251, "Chapter"],
 Cell[CellGroupData[{
-Cell[4612, 126, 919, 22, 79, "Input"],
-Cell[5534, 150, 288, 5, 32, "Output"]
+Cell[4666, 130, 919, 22, 79, "Input"],
+Cell[5588, 154, 288, 5, 32, "Output"]
 }, Open  ]],
-Cell[5837, 158, 276, 5, 31, "Text"]
+Cell[5891, 162, 276, 5, 31, "Text"],
+Cell[6170, 169, 244, 5, 101, "Section"],
+Cell[CellGroupData[{
+Cell[6439, 178, 106, 1, 51, "Section"],
+Cell[CellGroupData[{
+Cell[6570, 183, 984, 29, 103, "Input"],
+Cell[7557, 214, 255, 8, 32, "Output"],
+Cell[7815, 224, 4298, 85, 233, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12150, 314, 522, 14, 56, "Input"],
+Cell[12675, 330, 1881, 38, 150, "Output"]
+}, Open  ]],
+Cell[14571, 371, 92, 1, 32, "Input"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }
