@@ -1,0 +1,85 @@
+\documentclass{amsart}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\supp}{\mathop{\mathrm{Supp}}\nolimits}
+\newcommand{\ep}{\varepsilon}
+
+\begin{document}
+
+\section*{Compression}
+
+
+Basic idea: We want to encode data with polynomials.
+
+So we need to be able to find polynomials with few coefficients.
+\[
+\supp(f) = \{\text{the number of nonzero coefficients of $f$}\}.
+\]
+
+\subsection*{One way to reduce coefficients}
+
+There is a theorem that says:
+
+Given any $\ep$, there exists $f$ such that
+\[
+\supp(f^2)\le \ep \supp(f)
+\]
+
+\subsection*{Another way}
+
+Apply a transfromation (\textbf{probably} a linear shift) to find symmetry.
+
+Qualities of the ``correct'' transformation:
+\begin{enumerate}
+  \item The equilvance classes of polynomials defined by
+    \[
+    f \sim g \Leftrightarrow f\circ T = g
+    \]
+    where $T$ is our transformation will have nice properties.
+  \item It would be nice if there was some way to ``find'' the most
+    symmetric transformation of the polynomial. I'm thinking calculus might help here.
+\end{enumerate}
+
+Take your favorite equivalence class, and then investigate which
+transformations are needed for explicit polynomials to get the one
+with the smallest support, and see if you can uncover a pattern for
+chosing the correct transformation. Make a small table.
+
+
+For example: Working in $\Z_{5}[x]$
+
+\[
+\begin{array}{|l|c|c|c|c|c|}\hline
+  \text{polynomial} &
+  x^3 &
+  x^3+3 x^2+3 x+1 &
+  x^3+x^2+2 x+3   &
+  x^3+4 x^2+2 x+2 &
+  x^3+2 x^2+3 x+4 \\ \hline
+ \text{transformation} &  x   & x+1 & x+2 & x+3 & x+4 \\ \hline
+\end{array}
+\]
+
+\subsection*{Work in a finite field of a power of two}
+
+Work in $\F_{2^8}$.
+
+Encode a circle.
+
+
+\subsection*{Galois Theory}
+
+Consider an equivalence class of polynomials by a (linear) transformation (start in $\Z_p[x]$).
+
+
+
+\subsection*{Work in extension of a finite field}
+
+So work in $\Z_p[\omega]$ where $\omega$ is algebraic over $\Z_p$
+
+
+
+
+
+\end{document}
